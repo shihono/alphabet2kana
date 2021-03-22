@@ -6,7 +6,7 @@ def _convert(text):
     return text.translate(A2L_TABLE)
 
 
-def a2k(text, delimiter=''):
+def a2k(text, delimiter=""):
     """Convert English alphabet to Katakana
 
     Parameters
@@ -36,5 +36,4 @@ def a2k(text, delimiter=''):
             res.append(_convert(delimiter.join(t)))
         else:
             res.extend(t)
-    return ''.join(res)
-
+    return "".join(res)
