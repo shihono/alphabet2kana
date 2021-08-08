@@ -26,6 +26,9 @@ a2k("Alphabetと日本語")
 
 a2k("Alphabetと日本語", delimiter="・")
 # "エー・エル・ピー・エイチ・エー・ビー・イー・ティーと日本語"
+
+a2k('k8s', delimiter='・', numeral=True)
+# "ケー・エイト・エス"
 ``` 
 
 半角にのみ対応しています。

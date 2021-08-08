@@ -108,10 +108,12 @@ NM_FORM = [
     "エイト",
     "ナイン",
 ]
+ALPHABET_NUMERAL_ALL = ALPHABET_ALL + NUMERALS
 
 A2K = dict(zip(ALPHABET_U, AL_FORM))
 A2K.update(dict(zip(ALPHABET_L, AL_FORM)))
 A2K_TABLE = str.maketrans(A2K)
 
-N2K = dict(zip(NUMERALS, NM_FORM))
-N2K_TABLE = str.maketrans(N2K)
+AN2K = A2K.copy()
+AN2K.update(dict(zip(NUMERALS, NM_FORM)))
+AN2K_TABLE = str.maketrans(AN2K)

@@ -1,5 +1,5 @@
 from itertools import groupby
-from .char_table import A2K_TABLE, ALPHABET_ALL, N2K_TABLE, NUMERALS
+from .char_table import A2K_TABLE, AN2K_TABLE, ALPHABET_ALL, ALPHABET_NUMERAL_ALL
 
 
 def _convert(text, conv_table):
@@ -24,17 +24,17 @@ def convert(text, delimiter, conv_table, target_words):
     """
     if not delimiter:
         return _convert(text, conv_table)
-    res = []
+    delimiter_text = ""
     for k, v in groupby(text, lambda x: x in target_words):
         t = list(v)
         if k:
-            res.append(_convert(delimiter.join(t), conv_table))
+            delimiter_text += delimiter.join(t)
         else:
-            res.extend(t)
-    return "".join(res)
+            delimiter_text += "".join(t)
+    return "".join(_convert(delimiter_text, conv_table))
 
 
-def a2k(text, delimiter=""):
+def a2k(text, delimiter=None, numeral=False):
     """Convert English alphabet to Katakana
 
     Parameters
@@ -43,6 +43,8 @@ def a2k(text, delimiter=""):
         Half-width English alphabet string.
     delimiter : str
         Katakana delimiter
+    numeral: bool
+        convert Arabic numerals
     Returns
     -------
     str
@@ -54,30 +56,13 @@ def a2k(text, delimiter=""):
     'エービーシー'
     >>> a2k('ABCです', delimiter='・')
     'エー・ビー・シーです'
+    >>> a2k('k8s', delimiter='・', numeral=True)
+    'ケー・エイト・エス'
     """
+    if numeral:
+        return convert(text, delimiter, AN2K_TABLE, ALPHABET_NUMERAL_ALL)
     return convert(text, delimiter, A2K_TABLE, ALPHABET_ALL)
 
 
-def num2k(text, delimiter=""):
-    """Convert numerical digits to Katakana
-
-    Parameters
-    ----------
-    text : str
-        Half-width digits string.
-    delimiter : str
-        Katakana delimiter
-
-    Returns
-    -------
-    str
-        convert string
-
-    Examples
-    --------
-    >>> num2k('123')
-    'ワンツースリー'
-    >>> a2k('123です', delimiter='・')
-    'ワン・ツー・スリーです'
-    """
-    return convert(text, delimiter, N2K_TABLE, NUMERALS)
+if __name__ == "__main__":
+    print(a2k("ps4", numeral=True))
