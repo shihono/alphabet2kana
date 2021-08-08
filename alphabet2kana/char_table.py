@@ -55,7 +55,7 @@ ALPHABET_L = [
     "z",
 ]
 ALPHABET_ALL = ALPHABET_U + ALPHABET_L
-LFORM = [
+AL_FORM = [
     "エー",
     "ビー",
     "シー",
@@ -84,6 +84,36 @@ LFORM = [
     "ゼット",
 ]
 
-A2L = dict(zip(ALPHABET_U, LFORM))
-A2L.update(dict(zip(ALPHABET_L, LFORM)))
-A2L_TABLE = str.maketrans(A2L)
+NUMERALS = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+]
+NM_FORM = [
+    "ゼロ",
+    "ワン",
+    "ツー",
+    "スリー",
+    "フォー",
+    "ファイブ",
+    "シックス",
+    "セブン",
+    "エイト",
+    "ナイン",
+]
+ALPHABET_NUMERAL_ALL = ALPHABET_ALL + NUMERALS
+
+A2K = dict(zip(ALPHABET_U, AL_FORM))
+A2K.update(dict(zip(ALPHABET_L, AL_FORM)))
+A2K_TABLE = str.maketrans(A2K)
+
+AN2K = A2K.copy()
+AN2K.update(dict(zip(NUMERALS, NM_FORM)))
+AN2K_TABLE = str.maketrans(AN2K)
