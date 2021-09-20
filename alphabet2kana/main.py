@@ -5,18 +5,20 @@ from .alphabet2kana import a2k
 
 def parse_args(test=None):
     parser = argparse.ArgumentParser(
-        prog='a2k',
+        prog="a2k",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        description="Convert English alphabet to Katakana")
-    parser.add_argument('text', metavar='text', type=str,
-                        help='Half-width English alphabet string')
-    parser.add_argument('-d', '--delimiter', type=str,
-                        metavar='char',
-                        help='Katakana delimiter')
-    parser.add_argument('-n', '--numeral', action='store_true',
-                        help='Convert Arabic numerals')
-    parser.add_argument('-V', '--version', action='version',
-                        version="0.1.4")
+        description="Convert English alphabet to Katakana",
+    )
+    parser.add_argument(
+        "text", metavar="text", type=str, help="Half-width English alphabet string"
+    )
+    parser.add_argument(
+        "-d", "--delimiter", type=str, metavar="char", help="Katakana delimiter"
+    )
+    parser.add_argument(
+        "-n", "--numeral", action="store_true", help="Convert Arabic numerals"
+    )
+    parser.add_argument("-V", "--version", action="version", version="0.1.4")
     if test:
         return parser.parse_args(test)
     else:
@@ -29,5 +31,5 @@ def main():
     print(res)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
