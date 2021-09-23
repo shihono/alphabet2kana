@@ -14,8 +14,10 @@ jobs:
         poetry install --no-interaction
     - name: Check Format
       run: |
-        poetry run black . --check
         poetry run isort . --check
+        poetry run isort . --diff
+        poetry run black . --check
+        poetry run black . --diff
 
   # https://github.com/marketplace/actions/install-poetry-action#testing-using-a-matrix
   test:

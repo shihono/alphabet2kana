@@ -1,4 +1,5 @@
 import pytest
+
 from alphabet2kana.alphabet2kana import a2k
 
 
