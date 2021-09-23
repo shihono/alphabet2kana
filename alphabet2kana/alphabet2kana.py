@@ -1,5 +1,6 @@
 from itertools import groupby
-from .char_table import A2K_TABLE, AN2K_TABLE, ALPHABET_ALL, ALPHABET_NUMERAL_ALL
+
+from .char_table import A2K_TABLE, ALPHABET_ALL, ALPHABET_NUMERAL_ALL, AN2K_TABLE
 
 
 def _convert(text, conv_table):
