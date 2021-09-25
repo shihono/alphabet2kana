@@ -63,7 +63,3 @@ def a2k(text, delimiter=None, numeral=False):
     if numeral:
         return convert(text, delimiter, AN2K_TABLE, ALPHABET_NUMERAL_ALL)
     return convert(text, delimiter, A2K_TABLE, ALPHABET_ALL)
-
-
-if __name__ == "__main__":
-    print(a2k("ps4", numeral=True))
