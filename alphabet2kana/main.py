@@ -1,5 +1,7 @@
 import argparse
 
+import alphabet2kana
+
 from .alphabet2kana import a2k
 
 
@@ -18,7 +20,9 @@ def parse_args(test=None):
     parser.add_argument(
         "-n", "--numeral", action="store_true", help="Convert Arabic numerals"
     )
-    parser.add_argument("-V", "--version", action="version", version="0.1.4")
+    parser.add_argument(
+        "-V", "--version", action="version", version=alphabet2kana.__version__
+    )
     if test:
         return parser.parse_args(test)
     else:
