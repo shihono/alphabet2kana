@@ -9,6 +9,11 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
     - uses: snok/install-poetry@v1
+
+    - name: Poetry Install
+      run: |
+        poetry install --no-interaction
+
     - name: Check Format
       run: |
         poetry run isort . --check
@@ -22,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.7, 3.8, 3.9, 3.10, 3.11]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v3
