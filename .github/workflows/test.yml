@@ -6,12 +6,14 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
     - uses: snok/install-poetry@v1
-    - name: Install Poetry
+
+    - name: Poetry Install
       run: |
         poetry install --no-interaction
+
     - name: Check Format
       run: |
         poetry run isort . --check
@@ -25,31 +27,36 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
+
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
+
     - name: Load cached venv
       id: cached-poetry-dependencies
       uses: actions/cache@v2
       with:
         path: .venv
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
     # load cached venv if cache exists
     - name: Install Dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction --no-root
+
     - name: Install Root Dependency
       run: poetry install --no-interaction
+
     - name: Run Tests
       run: |
         source .venv/bin/activate

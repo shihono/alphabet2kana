@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "alphabet2kana"
-version = "0.1.5"
+version = "0.1.6"
 description = "Convert English alphabet to Katakana"
 repository = "https://github.com/shihono/alphabet2kana"
 readme = "README.md"

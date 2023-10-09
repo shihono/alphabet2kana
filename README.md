@@ -1,5 +1,9 @@
 # alphabet2kana
 
+![PyPI - Version](https://img.shields.io/pypi/v/alphabet2kana)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/alphabet2kana)
+
+
 Convert English alphabet to Katakana
 
 アルファベットの日本語表記は [Unidic](https://unidic.ninjal.ac.jp/) 
