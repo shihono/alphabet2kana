@@ -12,7 +12,7 @@ python = "^3.7"
 [tool.poetry.dev-dependencies]
 pytest = ">=6.2"
 black = "^22.8"
-isort = "^5.10.1"
+isort = "^5.11.5"
 
 [tool.poetry.scripts]
 a2k = 'alphabet2kana.main:main'
