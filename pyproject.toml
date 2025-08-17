@@ -1,17 +1,17 @@
 [tool.poetry]
 name = "alphabet2kana"
-version = "0.1.6"
+version = "0.1.7"
 description = "Convert English alphabet to Katakana"
 repository = "https://github.com/shihono/alphabet2kana"
 readme = "README.md"
 authors = ["shihono <26952997+shihono@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 
 [tool.poetry.dev-dependencies]
 pytest = ">=6.2"
-black = "^23.3"
+black = "^24.3.0"
 isort = "^5.11.5"
 
 [tool.poetry.scripts]
