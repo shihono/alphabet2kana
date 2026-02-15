@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
     - uses: snok/install-poetry@v1
 
     - name: Poetry Install
@@ -41,6 +41,7 @@ jobs:
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
+        version: 2.2.1
 
     - name: Load cached venv
       id: cached-poetry-dependencies
