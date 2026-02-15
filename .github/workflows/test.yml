@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v6
     - uses: actions/setup-python@v6
     - uses: snok/install-poetry@v1
+      with:
+        version: 2.2.1
 
     - name: Poetry Install
       run: |
